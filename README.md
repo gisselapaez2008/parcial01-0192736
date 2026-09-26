@@ -108,3 +108,37 @@ Construya un programa que:
 Entregue los dos archivos `.java`, debidamente nombrados y capaces de compilar y ejecutarse sin errores.
 
 **Antes de escribir código, identifique las entradas, el proceso y las salidas. El compilador detecta errores de sintaxis; la lógica todavía corre por cuenta del programador.**
+
+Explicacion ejercicio01
+1. Utiliamos un Scanner, el cúal permite que el programa reciba datos que escribe el usuario por el teclado.
+2. Creamos la clase principial, la cual tiene el nombre de parcial01
+3. Creamos el teclado, con el cual estamos preparando el programa para que pueda recibir la información 
+4. Creamos un arreglo, el cúal es una estructura que permite guardar varios datos del mismo tipo, en este caso vamos a guardar datos de tipo entero, el cual tendra 10 espacios, cada posicion representa un sector 
+5. Utilizamos la variable suma, para acumular todos los consumos 
+6. Utlizamos la variable mayor para guardar el consumo mas alto
+7. Utlizamos otra variable posicionMayor para guardar la posición del sector que tiene el mayor consumo.
+8. Utilizamos el primer for para pedir los 10 consumos 
+9. length nos dice cuántas posiciones tiene el arreglo, con este, estamos utilizando el tamaño real del arreglo
+10. Validamos que no sea negativo 
+11. Luego sumamos cada consumo, inicializamos y buscamos el mayor 
+12. Calculamos el promedio
+13. Creamos variables para la racha, guardamos la racha maxima
+14. Al final mostramos el consumo de cada sector 
+15. Y por ultimo cerramos el Scanner 
+
+Explicacion ejercicio02
+1. Importamos Scanner 
+2. Creamos la clase, que esta vez se llamaria ejrcicio02
+3. Creamos el teclado
+4. Creamos la matriz, la cual es parecida a un arreglo, pero esta tiene filas y columnas. Utilizamos matriz en este caso porque necesitamos relacionar dos datos (Maquina-Dia) y una matriz es perfecta para guardar esta informacion 
+5. Utilizamos el primer for para recorrer las maquinas 
+6. Utilizamos el segundo para recorrer los dias
+7. En este caso utilizamos dos for, porque necesitamos recorrer una estructura de filas y columnas 
+8. Luego pedimos la produccion 
+9. Validamos que no sea negativo 
+10. Creamos variables (mayor) y (maquina), mayor porque guarda el de total de produccion mas alto y maquina guarda el numero de la maquina que tiene ese mayor total 
+11. Calculamos el total de cada maquina
+12. Contamos los registros menores de 20
+13. Mostramos resultados finales 
+14. Mostramos toda la matriz 
+15. Cerramos el Scanner 
