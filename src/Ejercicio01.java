@@ -1,76 +1,92 @@
-import. java.util.Scanner;
-public static void main(String[] args ) {
-  
-     const CANTIDAD_SECTORES = 10;
-     const VALOR_MINIMO = 0;
 
-     let consumos = new Array(CANTIDAD_SECTORES);
-      let totalConsumo = 0;
+import java.util.Scanner;
 
+public class Ejercicio01 {
+    public static void main(String[] args) {
 
-for (let i = 0; i < CANTIDAD_SECTORES; i++) {
-    let consumo;
+        Scanner teclado = new Scanner(System.in);
 
-    do {
-        consumo = Number(prompt("Ingrese el consumo del sector " + (i + 1) + ":"));
-    } while (consumo < VALOR_MINIMO || isNaN(consumo));
+        int[] sectores = new int[10];
 
-    consumos[i] = consumo;
-    totalConsumo += consumo;
-}
+        int suma = 0;
+        int mayor;
+        int posicionMayor = 0;
 
+        
+        for (int i = 0; i < sectores.length; i++) {
 
-let promedioConsumo = totalConsumo / CANTIDAD_SECTORES;
+            System.out.print("Digite el consumo del sector " + (i + 1) + ": ");
+            sectores[i] = teclado.nextInt();
 
+            while (sectores[i] < 0) {
+                System.out.println("El consumo no puede ser negativo.");
+                System.out.print("Digite nuevamente el consumo: ");
+                sectores[i] = teclado.nextInt();
+            }
 
-let mayorConsumo = consumos[0];
-let sectorMayorConsumo = 1;
-
-for (let i = 1; i < CANTIDAD_SECTORES; i++) {
-    if (consumos[i] > mayorConsumo) {
-        mayorConsumo = consumos[i];
-        sectorMayorConsumo = i + 1;
-    }
-}
-
-
-let sectoresSobrePromedio = 0;
-
-for (let i = 0; i < CANTIDAD_SECTORES; i++) {
-    if (consumos[i] > promedioConsumo) {
-        sectoresSobrePromedio++;
-    }
-}
-
-
-let rachaActual = 0;
-let rachaMayor = 0;
-
-for (let i = 0; i < CANTIDAD_SECTORES; i++) {
-    if (consumos[i] > promedioConsumo) {
-        rachaActual++;
-
-        if (rachaActual > rachaMayor) {
-            rachaMayor = rachaActual;
+            suma = suma + sectores[i];
         }
-    } else {
-        rachaActual = 0;
+
+        
+        mayor = sectores[0];
+
+        for (int i = 1; i < sectores.length; i++) {
+
+            if (sectores[i] > mayor) {
+                mayor = sectores[i];
+                posicionMayor = i;
+            }
+        }
+
+        
+        double promedio = suma / 10.0;
+
+        
+        int cantidad = 0;
+
+        for (int i = 0; i < sectores.length; i++) {
+
+            if (sectores[i] > promedio) {
+                cantidad++;
+            }
+        }
+
+        
+        int racha = 0;
+        int rachaMaxima = 0;
+
+        for (int i = 0; i < sectores.length; i++) {
+
+            if (sectores[i] > promedio) {
+                racha++;
+
+                if (racha > rachaMaxima) {
+                    rachaMaxima = racha;
+                }
+
+            } else {
+                racha = 0;
+            }
+        }
+
+        
+        System.out.println("RESULTADOS ");
+        System.out.println("Consumo total: " + suma + " m3");
+        System.out.println("Promedio: " + promedio + " m3");
+        System.out.println("Sector con mayor consumo: " + (posicionMayor + 1));
+        System.out.println("Mayor consumo: " + mayor + " m3");
+        System.out.println("Sectores sobre el promedio: " + cantidad);
+        System.out.println("Racha más larga: " + rachaMaxima);
+
+        
+        System.out.println("CONSUMO POR SECTOR ");
+
+        for (int i = 0; i < sectores.length; i++) {
+            System.out.println("Sector " + (i + 1) + ": "
+                    + sectores[i] + " m3");
+        }
+
+        teclado.close();
     }
-}
-
-
-console.log("===== RESULTADOS =====");
-console.log("Consumo total: " + totalConsumo + " m³");
-console.log("Promedio: " + promedioConsumo + " m³");
-console.log("Sector con mayor consumo: " + sectorMayorConsumo);
-console.log("Sectores sobre el promedio: " + sectoresSobrePromedio);
-console.log("Racha más larga: " + rachaMayor);
-
-
-console.log("===== LISTADO DE SECTORES =====");
-
-for (let i = 0; i < CANTIDAD_SECTORES; i++) {
-    console.log("Sector " + (i + 1) + ": " + consumos[i] + " m³");
-}a
 }
 
